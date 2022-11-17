@@ -46,3 +46,19 @@
 ## 24. Swap Nodes in Pairs
 ### Solution
 创建一个哨兵节点 dummy，避免针对头结点的特殊处理；同时使用3指针(prev, cur, next)对链表相邻节点进行交换。
+
+## 25. Reverse Nodes in k-Group
+### Solution
+k个节点一组反转链表，可以将k个节点看成一个独立的链表；则该问题可以转化为反转n/k个链表；注意处理反转后的头结点和尾结点;
+
+## 61. Rotate List
+### Solution
+思路类似**19. Remove Nth Node From End of List**，使用快慢指针；
+
+首先快指针遍历链表，走k步，如果此时已超出链表长度length，则计算k = k % length，在重v新走k步；之后快慢指针一起走，当快指针走到链表尾时，此时慢指针的位置为旋转后的新链表头，调整指针指向即可。
+
+### Error (1 times accept)
+1. 考虑不全，忽略了k是length倍数的情况
+
+### Tips
+* **涉及for循环以及需要累积计算长度的问题时**，写代码前要考虑清楚，不要等代入case验证时，才确定
