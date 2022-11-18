@@ -67,3 +67,24 @@ k个节点一组反转链表，可以将k个节点看成一个独立的链表；
 闭合为环：记给定链表的长度为 n，注意到当向右移动的次数 k >= n 时，我们仅需要向右移动 k mod n 次即可。因为每 n 次移动都会让链表变为原状。这样我们可以知道，新链表的最后一个节点为原链表的第 (n - 1) - (k mod n) 个节点（从 0 开始计数）。这样，我们可以先将给定的链表连接成环，然后将指定位置断开即可。
 
 该方案相较双指针更优
+
+## 82. Remove Duplicates from Sorted List II
+### Solution
+使用2个指针 (prev, cur) 遍历链表，判断节点值是否重复，如果重复，则调整prev指向，继续遍历链表；如果不重复，则调整prev位置，继续遍历链表；
+
+## 83. Remove Duplicates from Sorted List
+### Solution
+方法同上，只需调整prev的初始位置即可。
+
+### Standard Solution
+我们从指针 cur 指向链表的头节点，随后开始对链表进行遍历。如果当前 cur 与 cur.next 对应的元素相同，那么我们就将 cur.next 从链表中移除；否则说明链表中已经不存在其它与 cur 对应元素相同的节点，因此可以将 cur 指向 cur.next。
+
+该方案相对2个指针 (prev, cur) 遍历链表更优
+```
+while (cur->next) {
+    if (cur->val == cur->next->val)
+        cur->next = cur->next->next;
+    else
+        cur = cur->next;
+}
+```
