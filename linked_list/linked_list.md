@@ -88,3 +88,19 @@ while (cur->next) {
         cur = cur->next;
 }
 ```
+
+## 86. Partition List
+### Solution
+使用2个指针 (prev, cur), prev用于指向 val < x 的当前节点；cur用于遍历链表，当遇到 val < x节点时，将其插入到 prev->next 节点处，并调整相关指针指向。
+
+### Error (1 times accept)
+1. 指针遍历考虑不全，当下一个节点被调整位置后，cur 不应继续向前遍历，否则会导致错误``` while (cur->next) ```
+
+## 92. Reverse Linked List II
+### Solution
+首先遍历链表，找到left位置的前一个节点，作为prev；然后对 (left, right]范围内节点，进行反转；然后调整left->next，以及prev->next指向即可
+
+### Error (2 times accept)
+1. 没有设置哨兵节点的next指针 -_-
+2. for循环，累计了错误的变量 -_-
+
