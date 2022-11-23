@@ -58,3 +58,24 @@ for (int i = 0; i < numRows; ++i) {
     }
 }
 ```
+
+## 14. Longest Common Prefix
+### Solution
+选取vector中的第一个元素作为基准，依次遍历vector中的剩余元素，判断元素当前位置是否与基准的相同；根据判断结果，获取最长公共前缀。
+
+## 43. Multiply Strings (Incapable)
+### Solution
+针对短字符串，可以使用遍历，并结合乘法运算律 ab * cd = (a0 + b) * (c0 + d)，完成乘积计算；但是大整数应该怎么求解呢？
+
+大整数，可以针对具体每一位进行求解，这样就不会出现溢出情况
+
+### Standard Solution
+令 m 和 n 分别表示 num1 和 num2 的长度，并且它们均不为0，则 num1 和 num2 的乘积的长度为 m+n-1 或 m+n。具体证明过程：略。
+
+由于 num1 和 num2 的乘积的最大长度为 m+n，因此创建长度为 m+n 的数组 ansArr 用于存储乘积。对于任意 i 和 j，num1[i] * num2[j]的结果位于
+ansArr[i+j+1]，如果 ansArr[i+j+1] >= 10，则将进位部分加到 ansArr[i+j];
+
+
+## 58. Length of Last Word
+### Solution
+从后向前遍历，获取字符串s的最后一个单词的最后一个字母位置；继续遍历，获取最后一个单词的第一个字母位置；两者相减，即可得到最后一个单词的长度。
