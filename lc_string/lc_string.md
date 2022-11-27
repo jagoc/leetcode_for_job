@@ -86,3 +86,25 @@ ansArr[i+j+1]，如果 ansArr[i+j+1] >= 10，则将进位部分加到 ansArr[i+j
 
 ### Tips
 * 将复杂的判断部分独立出来（函数、宏定义），这样更便于代码阅读
+
+## 17. Letter Combinations of a Phone Number
+### Solution
+1. 遍历digits字符串，当遍历到位置i时，当前`vector<string> result`中是[0, i-1]数字对应的字母组合，将digits[i]对应的字母与result一一组合，并插入result中，依次类推，即可得到最终result。
+2. 临界条件，当i = 0时，此时result为空，将digits[0]对应的字母插入至result中。
+
+### Error (1 times accept)
+1. 方案没问题，动手能力太差，没写出来；看了参考答案
+2. substr获取子字符串写错，写成了`substr(0, sz - 1)`
+
+## 22. Generate Parentheses (Incapable)
+### Solution
+1. 假设当前数字i对应的合法括号组合存于`result`中，则i+1对应的括号组合：即为遍历result中的每个字符串，将`()`插入每个字符串中，形成新的字符串，并去重；但是怎么去重呢？有没有更简单的方法
+
+### Standard Solution
+1. 我们可以生成所有 2^2n 个 '(' 和 ')' 字符构成的序列，然后我们检查每一个是否有效即可。为了生成所有序列，我们可以使用递归。
+2. 如果左括号数量不大于 n，我们可以放一个左括号。如果右括号数量小于左括号的数量，我们可以放一个右括号。
+
+## 28. Find the Index of the First Occurrence in a String
+### Solution
+该问题，即为实现string.find方法
+
