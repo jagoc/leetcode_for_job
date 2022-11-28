@@ -108,3 +108,13 @@ ansArr[i+j+1]，如果 ansArr[i+j+1] >= 10，则将进位部分加到 ansArr[i+j
 ### Solution
 该问题，即为实现string.find方法
 
+## 12. Integer to Roman
+### Solution
+num对10进行取模，获取数字i，判断数字i是否是4 or 9；如果不是，则根据数据i > 5的结果，组装罗马数字插入字符串中即可；num = num / 10; 继续上述步骤，不过要考虑当前处理的位数；
+
+方案可行，但是较复杂，时间复杂度为O(n)，不推荐；
+
+### Standard Solution
+根据罗马数字的唯一表示法，为了表示一个给定的整数 num，我们寻找不超过 num 的最大符号值，将 num 减去该符号值，然后继续寻找不超过 num 的最大符号值，将该符号拼接在上一个找到的符号之后，循环直至 num为 0。最后得到的字符串即为 num 的罗马数字表示。
+
+编程时，可以建立一个数值-符号对的列表 valueSymbols，按数值从大到小排列。遍历 valueSymbols 中的每个数值-符号对，若当前数值 value 不超过 num，则从 num 中不断减去 value，直至 num 小于 value，然后遍历下一个数值-符号对。若遍历中 num 为 0 则跳出循环。
