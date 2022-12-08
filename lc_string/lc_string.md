@@ -118,3 +118,12 @@ num对10进行取模，获取数字i，判断数字i是否是4 or 9；如果不�
 根据罗马数字的唯一表示法，为了表示一个给定的整数 num，我们寻找不超过 num 的最大符号值，将 num 减去该符号值，然后继续寻找不超过 num 的最大符号值，将该符号拼接在上一个找到的符号之后，循环直至 num为 0。最后得到的字符串即为 num 的罗马数字表示。
 
 编程时，可以建立一个数值-符号对的列表 valueSymbols，按数值从大到小排列。遍历 valueSymbols 中的每个数值-符号对，若当前数值 value 不超过 num，则从 num 中不断减去 value，直至 num 小于 value，然后遍历下一个数值-符号对。若遍历中 num 为 0 则跳出循环。
+
+
+## 10. Regular Expression Matching
+### Solution
+1. pattern 如果没有特殊字符，则需和 string 一一匹配
+2. pattern 有'.'，则可匹配对应位置的任何字符
+3. pattern 有'*'，则可匹配任意个前一个位置的字符，包括0个
+4. pattern 有'.*'，则可匹配任意个任意字符，包括0个
+双指针，同时遍历 string 和 pattern，根据pattern的字符，判断指针位移，最后确定是否匹配；
