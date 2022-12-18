@@ -122,3 +122,17 @@
 ## 35. Search Insert Position
 ### Solution
 使用二分法遍历数组，直至找到target对应的合适位置
+
+## 26. Remove Duplicates from Sorted Array
+### Solution
+使用快慢双指针法，快指针遍历数组，当nums[fast] != nums[slow]时，nums[++slow] = nums[fast]，直至遍历结束。
+
+## 31. Next Permutation
+### Solution
+从后向前遍历数组，存在如下情况：
+* nums[i] <= num[i-1], 继续向前遍历
+* nums[i] > num[i-1], 则遍历后续[i, n)数组，查找 > nums[i-1] 的最小值，并交换；然后翻转[i, n)中的元素
+即可解决该问题
+
+### Error (1 times accept)
+1. 存在相同元素的排列，处理错误: [1,5,1] 的下一个排列不是 [1,1,5]，而是[5,1,1]；`[[1,1,5], [1,5,1], [5,1,1]]`
